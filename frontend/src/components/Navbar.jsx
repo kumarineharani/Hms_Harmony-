@@ -12,7 +12,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className='flex items-center justify-betwewn text-sm py-4 mb-5 border-b border-b-gray-400'>
+    <nav className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400'>
         
       <img className='w-44 cursor-ppointer' src= { assets.logo} alt="Logo" />
       <ul className='hidden md:flex items-start gap-5 font-medium '>
@@ -36,13 +36,25 @@ const Navbar = () => {
       <div className='flex items-center gap-4'>
         {
             token 
-            ?<div className='flex items-center gap-2 cursor-pointer group relative:'>
-                <img className='w-8 rounded-full' src={assets.profile_pic} alt=''/>
-                <img className='w-2.5' src={assets.dropdown_icon} alt=''/>
+            ?<div className='relative group cursor-pointer'>
+              <div className='flex item-center gap-2'>
+                 <img className='w-8 rounded-full' src={assets.profile_pic} alt=''/>
+                 <img className='w-2.5' src={assets.dropdown_icon} alt=''/>
+               </div>
+                <div className='absolut right-0  mt-2 w-48 bg-white shadow-md rounded-lg  hidden group-hover:block'>
+                  <div className='min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4'>
+
+                 
+                   <p onClick={()=>navigate('myprofile')} className='px-4 py-2 hover:bg-gray-100 cursor-pointer'>My Profile </p>
+                    <p onClick={()=>navigate('myappointment')} className='px-4 py-2 hover:bg-gray-100 cursor-pointer'>My Appointment</p>
+                    <p onClick={()=>setToken(false)} className='px-4 py-2 hover:bg-red-100 text-red-600 cursor-pointer'>Logout </p>
+                    </div>
+                </div>
             </div>
 
        
-        :<button onClick={()=>navigate('/login')} className='bg-primary text-white px-8 py-3 rounded-full font-light hidden md:block '>CREATE ACCOUNT</button>
+        :<button onClick={()=>navigate('/login')} 
+        className='bg-primary text-blue-800 px-8 py-3 rounded-full font-light hidden md:block '>CREATE ACCOUNT</button>
         }
         </div>
     </nav>
