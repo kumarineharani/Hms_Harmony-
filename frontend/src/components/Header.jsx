@@ -21,9 +21,9 @@ const Header = () => {
           </p>
         </div>
 
-        {/* Fixed Book Appointment Button */}
+        
         <a
-          href="#"
+          href="#speciality"
           className="flex items-center bg-white text-blue-500 font-bold text-lg mt-3 px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 hover:text-white transition duration-300"
         >
           Book appointment

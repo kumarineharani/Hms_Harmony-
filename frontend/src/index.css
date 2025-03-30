@@ -89,5 +89,8 @@ button:focus-visible {
   background-color: #242424; 
   z-index: 1000;
 }
+::-webkit-scrollbar{
+  @apply hidden
+}
 
 
