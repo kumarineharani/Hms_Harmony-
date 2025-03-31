@@ -1,9 +1,17 @@
-import React from 'react';
-import { doctors } from '../assets/assets_frontend/assets.js';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
 
 const TopDoctors = () => {
-  const navigate = useNavigate(); // Moved inside the component
+  const navigate = useNavigate();
+  const context = useContext(AppContext); // First, get the context
+  console.log("Context value:", context); // Debugging: Check if doctors exist
+
+  if (!context || !context.doctors) {
+    return <p className="text-center text-red-500">Loading doctors... Please wait.</p>;
+  }
+
+  const { doctors } = context; // Destructure safely
 
   return (
     <div className='flex flex-col items-center gap-4 my-16 text-gray-900 md:mx-10'>
@@ -16,9 +24,9 @@ const TopDoctors = () => {
       <div className='w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-5 gap-y-6 px-3 sm:px-0'>
         {doctors.slice(0, 10).map((item, index) => (
           <div
-            onClick={() => navigate(`/appointment/${item._id}`)} // Fixed template string
-            className='border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[10px] transition-all duration-500' 
             key={index}
+            onClick={() => navigate(`/appointment/${item._id}`)}
+            className='border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[10px] transition-all duration-500' 
           >
             <img className='bg-blue-50 w-full h-40 object-cover' src={item.image} alt={item.name} /> 
             <div className='flex items-center gap-2 text-sm text-center text-green-500 mt-2'>
@@ -32,7 +40,7 @@ const TopDoctors = () => {
       </div>
 
       {/* More button */}
-      <button className='bg-blue-50 text-gray-600 px-12 py-3 rounded-full hover:bg-blue-600 transition mt-10'>
+      <button onClick={()=>{navigate('/doctors'); scrollTo(0,0)}} className='bg-blue-50 text-gray-600 px-12 py-3 rounded-full hover:bg-blue-600 transition mt-10'>
         More
       </button>
     </div>
