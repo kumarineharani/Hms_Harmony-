@@ -45,6 +45,7 @@ import MyAppointment from "./pages/myappointment";
 import Appointment from "./pages/appointment";
 import Navbar from "./components/Navbar"
 import AppContextProvider from "./context/AppContext";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -62,6 +63,7 @@ const App = () => {
           <Route path="/myprofile" element={<MyProfile />} />
           <Route path="/appointment/:docid" element={<Appointment />} />
         </Routes>
+        <Footer/>
       </div>
     </AppContextProvider>
   );
