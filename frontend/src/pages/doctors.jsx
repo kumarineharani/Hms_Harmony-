@@ -1,6 +1,8 @@
 import React from 'react'
 
 const doctors = () => {
+  const { speciality } = useParams()
+  console.log(speciality)
   return (
     <div>
         
