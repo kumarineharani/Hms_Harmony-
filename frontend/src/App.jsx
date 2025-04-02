@@ -46,6 +46,8 @@ import Appointment from "./pages/appointment";
 import Navbar from "./components/Navbar"
 import AppContextProvider from "./context/AppContext";
 import Footer from "./components/Footer";
+// import AllDoctor from "./components/AllDoctor"; // Adjust path if needed
+// 
 
 const App = () => {
   return (
@@ -62,6 +64,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/myprofile" element={<MyProfile />} />
           <Route path="/appointment/:docid" element={<Appointment />} />
+          
+
         </Routes>
         <Footer/>
       </div>

@@ -26,21 +26,24 @@ const TopDoctors = () => {
           <div
             key={index}
             onClick={() => navigate(`/appointment/${item._id}`)}
-            className='border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[10px] transition-all duration-500' 
+            className='border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[10px] transition-all duration-500'
           >
-            <img className='bg-blue-50 w-full h-40 object-cover' src={item.image} alt={item.name} /> 
-            <div className='flex items-center gap-2 text-sm text-center text-green-500 mt-2'>
-              <p className='w-2 h-2 bg-green-500 rounded-full'></p>
-              <p>Available</p>
+            <img className='bg-blue-50 ' src={item.image} alt=" " />
+            <div className='p-4'>
+              <div className='flex items-center gap-2 text-sm text-center text-green-500 '>
+
+                <p className='w-2 h-2 bg-green-500 rounded-full'></p>
+                <p>Available</p>
+              </div>
+              <p className='text-gray-900 text-lg font-medium'>{item.name}</p>
+              <p className='text-gray-600 text-sm'>{item.speciality}</p>
             </div>
-            <p className='text-gray-900 text-lg font-medium'>{item.name}</p>
-            <p className='text-gray-600 text-sm'>{item.speciality}</p>
           </div>
         ))}
       </div>
 
       {/* More button */}
-      <button onClick={()=>{navigate('/doctors'); scrollTo(0,0)}} className='bg-blue-50 text-gray-600 px-12 py-3 rounded-full hover:bg-blue-600 transition mt-10'>
+      <button onClick={() => { navigate('/doctors'); scrollTo(0, 0) }} className='bg-blue-50 text-gray-600 px-12 py-3 rounded-full hover:bg-blue-600 transition mt-10'>
         More
       </button>
     </div>
