@@ -5,12 +5,13 @@ import { doctors } from "../assets/assets_frontend/assets.js"; // Ensure the pat
 export const AppContext = createContext();
 
 const AppContextProvider = ({ children }) => {
+    const currencySymbol='Rs'
     const [doctorList, setDoctorList] = useState(doctors); // Store doctors in state
 
     console.log("Doctors in context:", doctorList); // Debugging
 
     const value = {
-        doctors: doctorList, // Ensure doctors are passed in value
+        doctors: doctorList, currencySymbol // Ensure doctors are passed in value
     };
 
     return (

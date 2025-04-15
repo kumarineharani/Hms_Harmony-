@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
 import { BrowserRouter } from 'react-router-dom';
-import { AppContext } from './context/AppContext.jsx';
+import AppContextProvider from './context/AppContext.jsx'; // Import the provider component
 
 const rootElement = document.getElementById('root');
 
@@ -11,10 +11,9 @@ if (rootElement) {
   createRoot(rootElement).render(
     <StrictMode>
       <BrowserRouter>
-        <AppContext>
-            <App />
-        </AppContext>
-
+        <AppContextProvider>
+          <App />
+        </AppContextProvider>
       </BrowserRouter>
     </StrictMode>
   );
